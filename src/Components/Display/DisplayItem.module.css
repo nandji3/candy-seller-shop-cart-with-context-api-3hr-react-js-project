@@ -1,0 +1,16 @@
+hr {
+    width: "100%";
+    border: "0";
+    height: "3px";
+    background: "#095484";
+    background-image: linear-gradient(to right, #ccc, #095484, #ccc);
+}
+
+button {
+    color: white;
+    background-color: rgb(202, 41, 41);
+    padding: 0.4rem 0.7rem;
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+    border: none;
+}
