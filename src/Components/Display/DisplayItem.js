@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import "./DisplayItem.module.css"
-import styles from "../Form/Form.module.css"
+import styles from "../Display/DisplayItem.module.css"
 import CartContext from "../../Store/CartContext";
 
 const DisplayItem = ({ formData }) => {

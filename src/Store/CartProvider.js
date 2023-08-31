@@ -1,9 +1,19 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import CartContext from "./CartContext";
 
 
+const getLatestFormDataFetchedFromLocalStorage = () => {
+    let cartData = JSON.parse(localStorage.getItem("cartItems"));
+    if (cartData) {
+        return cartData;
+    }
+    else {
+        return [];
+    }
+}
+
 const defaultCartState = {
-    items: [],
+    items: getLatestFormDataFetchedFromLocalStorage(),
     totalAmount: 0,
 }
 
@@ -71,6 +81,10 @@ const CartProvider = ({ children }) => {
     const removeItemFromCartHandler = (id) => {
         dispatchCartAction({ type: 'REMOVE', id: id });
     };
+
+    useEffect(() => {
+        localStorage.setItem("cartItems", JSON.stringify(cartState.items))
+    }, [cartState.items])
 
     const cartContext = {
         showCart: () => setCartIsShown(true),  //used for open cart
